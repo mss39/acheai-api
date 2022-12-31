@@ -8,21 +8,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
-@AllArgsConstructor
+@Entity
 @NoArgsConstructor
-public class Anuncio {
+@AllArgsConstructor
+public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String titulo;
-    private String descricao;
-    private String endereco;
-    private String status;
-    private Long recompensa;
-    private String categoria;
+    private String name;
 
+    private String email;
+    private String password;
 }
