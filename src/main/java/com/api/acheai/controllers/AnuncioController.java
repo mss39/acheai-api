@@ -3,7 +3,6 @@ package com.api.acheai.controllers;
 import com.api.acheai.models.Anuncio;
 import com.api.acheai.services.AnuncioService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

@@ -5,6 +5,9 @@ import com.api.acheai.models.Usuario;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -62,7 +65,10 @@ public class JWTAutenticarFilter extends UsernamePasswordAuthenticationFilter {
                 .withExpiresAt(new Date(System.currentTimeMillis() + TOKEN_EXPIRACAO))
                 .sign(Algorithm.HMAC512(TOKEN_SENHA));
 
-        response.getWriter().write(token);
+        String rToken = "{\"token\": " + token + "}";
+        JsonObject jsonObject = new JsonParser().parse(rToken).getAsJsonObject();
+        response.setContentType("application/json");
+        response.getWriter().print(jsonObject);
         response.getWriter().flush();
 
     }
