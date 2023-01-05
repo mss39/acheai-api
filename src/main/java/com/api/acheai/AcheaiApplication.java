@@ -19,4 +19,6 @@ public class AcheaiApplication {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		return encoder;
 	}
+
+
 }
