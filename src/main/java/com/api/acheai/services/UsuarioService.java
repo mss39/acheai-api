@@ -47,4 +47,13 @@ public class UsuarioService {
 
         return ResponseEntity.status(status).body(valid);
     }
+
+
+    public void delete(Long id) {
+        usuarioRepository.deleteById(id);
+    }
+
+    public Optional<Usuario> findById(Long id) {
+        return usuarioRepository.findById(id);
+    }
 }
